@@ -1,0 +1,50 @@
+/*
+animations css stylesheet
+
+issue ng-repeat animations
+
+:: version history ::
+1.0 - inital release - jonathan captanis - 15/11/13
+
+*/
+
+.issues-animate.ng-enter {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+
+.issues-animate.ng-enter {
+    margin-top: -1000;
+}
+
+.issues-animate.ng-enter-active {
+    margin-top: 0px;
+}
+
+/* view animations */
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+    -webkit-transition:all linear 1s;
+    -moz-transition:all linear 1s;
+    -ms-transition:all linear 1s;
+    -o-transition:all linear 1s;
+    transition:all linear 1s;
+}
+
+.view-animate.ng-enter {
+    opacity: 0;
+}
+
+.view-animate.ng-leave {
+    opacity: 1;
+}
+
+.view-animate.ng-leave-active {
+    opacity: 0;
+}
+
+.view-animate.ng-enter-active {
+    opacity: 1;
+}

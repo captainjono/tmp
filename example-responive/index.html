@@ -1,0 +1,123 @@
+<!--
+----------------------
+Example responsive app
+----------------------
+
+:: prefix ::
+i have  simulated how i would go about turning a story from the backlog
+into a series of tasks to implement the functionality in a Scrum process.
+
+:: assumptions ::
+* demonstrating knowledge of the APIs, design patterns and demonstrate
+responsive UI/X.
+* i would usually test code as well with jasmine/bdd but have left it out as this is all experimental features
+that i play with often
+
+:: version history ::
+1.0 - inital release adding angular backbone and inital layout - jonathan captanis - 15/11/13
+1.1 - updated for responsive UI with bootstrap3 - jonathan captanis - 20/01/14
+1.2 - updated for Honeywell, cleaned cobdebase - jonathan captanis - 6/02/14
+
+:: requirement 8 backlog ::
+
+    todo:
+    - create document-outline directive to auto-populate list with document headers
+        - create tracker to watch document headers and highlight menu items
+
+
+    in-progress:
+    - create directive to track and jump to scroll menu points
+
+    done:
+    - convert index to bootstrap3 classes
+    - convert about to bootstrap3 classes
+    - add affixed about-me box
+        - add css to make affixed about-me responsive on mobile
+    - convert issues to media-style bootstrap3 classes
+    - rename css global.css
+    - clean up html and css
+    - add navigation bar
+    - add view animations
+    - review and finalise comments
+    - add about view
+    - add issue view
+    - add animations to issue list
+    - refactor in issue service layer for abstraction of repo from controller
+    - add css formatting for issue list
+    - add progress spinner for issue requests
+    - format datetime of issue list
+    - add issue repo for abstraction
+        - add error handling for failed web request to UI
+        - add mock issue repo to pull static issue list
+        - add call to current issue service
+    - add issue controller
+        - add getissues on VM
+        - add state varibles to support UI presentation logic on VM
+    - add issue catalog app
+    - add angular refs and explore latest version
+
+    : done definition :
+    - implements specified functionality without error with supplied test data
+
+references:
+- http://docs.angularjs.org/ - for API reference and best practice guide
+- http://momentjs.com - for formatting of issue datetime status
+- http://getbootstrap.com/components/ - for bootstrap API reference
+-->
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Project</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="assets/css/global.css" rel="stylesheet">
+        <link href="assets/css/animations.css" rel="stylesheet">
+
+    </head>
+    <body data-spy="scroll" data-target="#side-nav">
+        <div ng-app="issueCatalog">
+            <header class="navbar navbar-fixed-top main-navigation">
+                    <div class="container">
+                        <ul>
+                            <li>
+                                <a ng-class="isActivePage('about')" href="#about">About</a>
+                            </li>
+                            <li>
+                                <a ng-class="isActivePage('issues')" href="#issues">Issues</a>
+                            </li>
+                        </ul>
+                    </div>
+
+            </header>
+                   <div class="view-animate-container container">
+                        <div ng-view class="view-animate" >
+
+                        </div>
+                    </div>
+            </div>
+        <div class="main-footer navbar-fixed-bottom"></div>
+    </body>
+
+    <!-- external libs - always load JS nearest to bottom of DOM for performance reasons -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/spin.min.js"></script>
+    <script src="lib/jquery-2.1.0.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <!-- project libs -->
+
+    <script src="assets/js/issueCatalog.js"></script>
+    <script src="assets/js/repositories/issueRepository.js"></script>
+    <script src="assets/js/repositories/localFileIssueRepository.js"></script>
+    <script src="assets/js/controllers/issueController.js"></script>
+    <script src="assets/js/controllers/aboutController.js"></script>
+    <script src="assets/js/services/issueService.js"></script>
+    <script src="assets/js/filters/fromNowFilter.js"></script>
+    <script src="assets/js/directives/icBusySpinner.js"></script>
+    <script src="assets/js/directives/scrollTo.js"></script>
+
+</html>

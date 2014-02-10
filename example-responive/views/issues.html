@@ -1,0 +1,43 @@
+<!--
+The issues view.
+
+Displays a list of application issues pulled off a json feed
+
+:: version history ::
+1.0 - inital release - jonathan captanis - 15/11/13
+1.1 - updated for responsive UI with bootstrap3 - jonathan captanis - 20/01/14
+-->
+
+    <div class="row" ng-controller="issueController" ng-init="getIssues()">
+        <div class="col-md-7 col-md-offset-2" ic-busy-spinner="isBusy" style="align-self: center">
+
+            <ul class="media-list">
+                <li class="media issues-animate"  ng-class="{'issue-template-resolved': issue.status == 'Resolved', 'issue-template-Unresolved': issue.status == 'Unresolved'}" ng-repeat="issue in issues" ng-if="issues.length">
+                    <div class="issue-unresolved" ng-if="issue.status == 'Unresolved'">{{issue.title}} - Begin {{issue.beganAt | fromNow}}</div> <!-- If status === Unresolved -->
+                    <div class="issue-resolved" ng-if="issue.status == 'Resolved'">{{issue.title}} - Resolved {{issue.beganAt | fromNow}}</div> <!-- If status === Resolved -->
+
+                    <div class="media body">
+                        {{issue.description}}
+                        <div class="issue-update-header">
+                            <p>Updates:</p>
+                            <ul class="media-list">
+                                <li class="media update-template" ng-repeat="update in issue.updates">
+                                    <img class="pull-left media-object" ng-src="{{update.avatar}}">
+                                    <div class="media-body">
+                                        <div class="media-heading">By {{update.by}} {{update.at | fromNow}}</div>
+                                        {{update.update}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="no-issues-template" ng-if="dataLoaded && issues.length == 0">
+                No issues to resolve!
+            </div>
+            <div class="issues-failed-to-load" ng-if="hasError">
+                An error occoured while fetching issues. Please try again
+            </div>
+        </div>
+    </div>

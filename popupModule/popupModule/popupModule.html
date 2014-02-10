@@ -1,0 +1,57 @@
+<!--
+Demo page for popupModule
+-->
+
+<html>
+<head>
+    <title>Honeywell task test page</title>
+    <link href="directives/templates/css/popupCircle.css" rel="stylesheet">
+    <style>
+        /*inline css for testing purposes only!!!*/
+        #popup1 .circle {
+            margin: 405px 0  0 305px;
+        }
+        #popup2 .circle {
+            margin: 405px 0  0 955px;
+        }
+        .viewport
+        {
+            width: 1000px;
+            height: 1000px;
+        }
+    </style>
+</head>
+    <body ng-app="popupModule">
+        <div class="viewport">
+            <popup-circle id="popup1"  popupwidth="300" popupheight="400" radius="20" reorientate="false"></popup-circle>
+            <popup-circle id="popup2" popupwidth="300" popupheight="400" radius="20" orientation="west" reorientate="true"></popup-circle>
+        </div>
+
+        <!-- external libs - always load JS nearest to bottom of DOM for performance reasons -->
+        <script src="lib/jquery-2.1.0.min.js"></script>
+        <script src="lib/angular.min.js"></script>
+
+        <!-- project libs -->
+        <script src="popupModule.js"></script>
+        <script src="directives/popupCircle.js"></script>
+
+        <!--NOTE-->
+        <!--This is a quick workaround for loading this demo directly off the file-system without a web-server-->
+        <!--The reason is XHR requests can only be performed on http in browsers for security reasons-->
+        <script type="text/ng-template" id="directives/templates/popupCircle.html">
+            <div class="circle toggleable">
+                <div  class="popup-clip">
+                    <div class="popup-arrow-north"></div>
+                    <div  class="popup"></div>
+                    <div  class="popup-arrow-east"></div>
+                    <div  class="popup-arrow-west"></div>
+                    <div  class="popup-arrow-south"></div>
+                </div>
+                <div class="orientation-clip toggleable">
+                    <div class="orientation-arrow"></div>
+                </div>
+            </div>
+        </script>
+        <!--end workaround for no webserver-->
+    </body>
+</html>

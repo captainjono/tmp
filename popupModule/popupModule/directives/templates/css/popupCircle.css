@@ -1,0 +1,178 @@
+/*
+
+This file contains default styling for the popupCircle directive.
+
+-----------
+version 1.0
+-----------
+- inital release - Jonathan Captanis - 9/2/12
+
+/* Popup styling */
+
+.popup {
+    border: 2px solid black;
+    position: relative;
+    z-index: 1;
+}
+
+.popup-clip {
+    display: none;
+    position: relative;
+}
+
+
+/*all permetations of the popup arrow*/
+.popup-arrow-north {
+    z-index: 1;
+    position: absolute;
+    border-style: solid;
+    border-width: 0 6px 4px 6px;
+    border-color: transparent transparent black transparent;
+    top:-4px;
+    left:142px;
+    display:none;
+}
+
+.popup-arrow-south {
+    z-index: 1;
+    position: absolute;
+    border-style: solid;
+    border-width: 4px 6px 0 6px;
+    border-color: black transparent transparent transparent;
+    display:none;
+    left:142px;
+}
+
+.popup-arrow-east {
+    z-index: 1;
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 0 6px 4px;
+    border-color: transparent transparent transparent black;
+    top:198px;
+    left:300px;
+    display:none;
+}
+
+.popup-arrow-west {
+    z-index: 1;
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 4px 6px 0;
+    border-color: transparent black transparent transparent ;
+    top:198px;
+    left:-4px;
+    display:none;
+}
+
+/*The bounding area for css-funky orientation arrow*/
+.orientation-clip {
+    overflow: hidden;
+    position: relative;
+    top: -388px;
+    left: 30px;
+    width: 11px;
+    height: 40px;
+    margin: 0px;
+    -webkit-transform: rotate(35deg);
+    display: none;
+    z-index: 2;
+}
+
+/*arrow arc*/
+.orientation-arrow {
+    position: absolute;
+    top: -8px;
+    left: -40px;
+    border: 2px solid coral;
+    border-radius: 47px;
+    border-color: transparent coral transparent transparent;
+    width: 47;
+    height: 47px;
+
+}
+
+/*arrow pointer*/
+.orientation-arrow:after {
+    position: relative;
+    top: 17px;
+    left: 37px;
+    content: ' ';
+    border-left: 1px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 8px solid coral;
+}
+/*main circle*/
+.circle {
+    background-color: black;
+    position: absolute;
+}
+
+/* for objects which can be manipulated with the cursor or other*/
+.toggleable {
+    cursor: hand;
+}
+
+/*
+i did working on paper and the the computer, left this hear to show some
+insight into the way my mind works
+*/
+
+/*'w = 300 + 4 (b) = 304'*/
+/*'h = 400 + 4 (b) + 4 (p) = 408'*/
+/*'hQ = h - p / 2 = 202'*/
+/*'C = 132'*/
+/*'Q = '*/
+/*'E = w  / 2 = 304 / 2 = 132'*/
+
+/*'left =*/
+/*'top =*/
+
+/*'south arrow'*/
+.north {
+    left: -128px;
+    top: -404px;
+}
+
+/*'no arrow'*/
+.northeast {
+    left: 36px;
+    top: -392px;
+}
+
+/*'no arrow'*/
+.northwest {
+
+    left: -296px;
+    top: -392px;
+}
+
+/*'east arrow'*/
+.east {
+    left: 44px;
+    top: -182px;
+}
+
+/*'no arrow'*/
+.southeast {
+    left: 36px;
+    top: 32px;
+}
+
+/*'north arrow'*/
+.south {
+    left: -128px;
+    top: 44px;
+}
+
+/*'no arrow'*/
+.southwest {
+    left: -296px;
+    top: 32px;
+}
+
+/*'east arrow'*/
+.west {
+    left: -304px;
+    top: -182px;
+}
